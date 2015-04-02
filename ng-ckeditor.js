@@ -126,6 +126,10 @@
                         });
 
                         instance.document.on('keyup', setModelData);
+
+                        if(options.initContent) {
+                            instance.setData(options.initContent);
+                        }
                     });
                     instance.on('customConfigLoaded', function () {
                         configLoaderDef.resolve();
