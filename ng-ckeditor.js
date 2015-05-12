@@ -122,14 +122,13 @@
                     instance.on('instanceReady', function () {
                         scope.$broadcast('ckeditor.ready');
                         scope.$apply(function () {
+                            if(options.initContent) {
+                                instance.setData(options.initContent);
+                            }
                             onUpdateModelData(true);
                         });
 
                         instance.document.on('keyup', setModelData);
-
-                        if(options.initContent) {
-                            instance.setData(options.initContent);
-                        }
                     });
                     instance.on('customConfigLoaded', function () {
                         configLoaderDef.resolve();
